@@ -1,13 +1,20 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html>
+<html ng-app='angularjs-dragula-example'>
     <head>
         <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Auth Demo</title>
                 <!-- Core CSS - Include with every page -->
                 <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+                <link href="{% static 'css/dragula.min.css' %}" rel="stylesheet">
+                <link href="{% static 'css/example.css' %}" rel="stylesheet">
+
+
+                <script src = "{% static 'js/angular.min.js' %}"></script>
+                <script src = "{% static 'js/angular-dragula.min.js' %}"></script>
+                <script src = "{% static 'js/main.js' %}"></script>
                 </head>
                 <body>
                     <nav class="navbar navbar-default">
