@@ -4,11 +4,14 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from kanban.serializers import CategorySerializer
+from kanban.models import Category
+
+from rest_framework.decorators import api_view
+
+from rest_framework.response import Response
 
 
-# Create your views here.
-# this login required decorator is to not allow to any
-# view without authenticating
 @login_required(login_url="login/")
 def home(request):
     return render(request,"home.html")
@@ -38,3 +41,11 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+
+@api_view(['GET'])
+def category_collection(request):
+    if request.method == 'GET':
+        posts = Category.objects.all().filter(user__username=request.user)
+        serializer = CategorySerializer(posts, many=True)
+        return Response(serializer.data)

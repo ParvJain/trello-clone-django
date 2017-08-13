@@ -13,15 +13,15 @@ class Category(models.Model):
                                         self.user.id)
 
     class Meta:
-        default_related_name = "category"
         ordering = ['-id']
 
 class Task(models.Model):
     title = models.CharField(max_length=150)
     description = models.TextField()
     is_visible = models.BooleanField(default=True)
-    weight = models.FloatField(unique=True)
-    category = models.ForeignKey(Category)
+    weight = models.FloatField()
+    category = models.ForeignKey(Category, related_name="tasks",
+                                    on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -32,5 +32,4 @@ class Task(models.Model):
                                                 self.category.id)
 
     class Meta:
-        default_related_name = "tasks"
         ordering = ['-weight']
