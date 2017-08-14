@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html ng-app='angularjs-dragula-example'>
+<html ng-app='app'>
     <head>
         <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,8 @@
 
                 <script src = "{% static 'js/angular.min.js' %}"></script>
                 <script src = "{% static 'js/angular-dragula.min.js' %}"></script>
-                <script src = "{% static 'js/main.js' %}"></script>
+                <script src = "{% static 'js/app.module.js' %}"></script>
+                <script src = "{% static 'js/controller.js' %}"></script>
                 </head>
                 <body>
                     <nav class="navbar navbar-default">
