@@ -3,24 +3,14 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
-        <div class="jumbotron">
-            <h1>Hello</h1>
-            <p>You are on your Dashboard</p>
-        </div>
-    </div>
     <div class='parent' ng-controller='Kanban as vm'>
-        <label for='hy'><strong>Angular-specific example.</strong> Fancy some nested <code>ng-repeat</code>?</label>
-        <div class='wrapper'>
-          <div class='container' ng-repeat="group in groups" dragula="'nested-bag'" dragula-scope="$parent">
-            <div ng-repeat='item in group.items' ng-bind='item.name' data-toggle="modal" data-target="#myModal"></div>
-          </div>
+        <!-- <label for='hy'><strong>Angular-specific example.</strong> Fancy some nested <code>ng-repeat</code>?</label> -->
+          <div class="task-box" ng-repeat="group in groups" dragula="'nested-bag'" dragula-scope="$parent" >
+            <span class="add-task">{{group.name}}</span>
+            <div class="task-card" ng-repeat='item in group.items' ng-bind='item.name' data-toggle="modal" data-target="#myModal"></div>
         </div>
       </div>
 </div>
-
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
